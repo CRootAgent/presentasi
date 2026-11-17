@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Presentasi CRootAgent — Spatial 3D Deck (crootss)</title>
+  <meta name="description" content="Presentasi spasial 3D CRootAgent berbasis CSS transforms murni menggunakan engine crootss. Membahas perancangan agen CLI ultra-ringan berbasis Rust dengan multi-API session.">
+  
+  <!-- crootss core & poster theme -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crootss/crootss@v0.4.0/crootss.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/crootss/themes@v0.4.0/poster.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- crootss 3D Presentation Viewport -->
+  <div class="croot-viewport" data-croot data-croot-overview="#peta">
+    <div class="croot-stage">
+
+      <!-- ==================== NODE 1: BIG PICTURE (CONCEPT MAP) ==================== -->
+      <section id="peta" class="croot-node slide cover" data-croot-step="1" data-croot-x="0" data-croot-y="0" data-croot-z="0">
+        <div class="deck-header">
+          <span class="badge-tag">Proyek 2 D4TI ULBI Bandung 2026</span>
+          <span class="badge-author">Ahmad Zakky Nurfauzan (714250028)</span>
+        </div>
+        <h1 class="main-title">CRootAgent 🦀🤖</h1>
+        <p class="subtitle">Rancang Bangun Agen Coding CLI Ultra-Ringan dengan Multi-API Session & Orkestrasi Perkakas Berbasis Rust</p>
+
+        <!-- Big Picture Diagram: Concept Map -->
+        <div class="concept-map">
+          <div class="map-card" data-croot-target="#masalah">
+            <span class="map-icon">⚠️</span>
+            <h3>1. Masalah</h3>
+            <p>Node/Python memakan 180MB RAM & startup lambat</p>
+          </div>
+          <div class="map-card" data-croot-target="#profil">
+            <span class="map-icon">🎓</span>
+            <h3>2. Profil Software Engineer</h3>
+            <p>Fitur end-to-end, test suite, CI/CD otomatis</p>
+          </div>
+          <div class="map-card" data-croot-target="#arsitektur">
+            <span class="map-icon">⚙️</span>
+            <h3>3. Arsitektur Rust</h3>
+            <p>Memory safety, zero-cost abstraction, binary 6MB</p>
+          </div>
+          <div class="map-card" data-croot-target="#multiprovider">
+            <span class="map-icon">🌐</span>
+            <h3>4. Multi-API Session</h3>
+            <p>Gemini, Claude, OpenAI, Groq, & Ollama</p>
+          </div>
+          <div class="map-card" data-croot-target="#tools">
+            <span class="map-icon">🛡️</span>
+            <h3>5. Tools & HITL Safety</h3>
+            <p>Read, write, edit, shell, konfirmasi interaktif</p>
+          </div>
+          <div class="map-card" data-croot-target="#benchmark">
+            <span class="map-icon">📊</span>
+            <h3>6. Hasil & Benchmark</h3>
+            <p>10,2 MB RAM (93,8% lebih hemat) & startup 18ms</p>
+          </div>
+          <div class="map-card" data-croot-target="#cicd">
+            <span class="map-icon">🚀</span>
+            <h3>7. CI/CD & Landing Page</h3>
+            <p>Rilis Multi-OS otomatis & web CrootJS</p>
+          </div>
+        </div>
+
+        <div class="deck-hint">
+          <span>Gunakan tombol panah <strong>&rarr;</strong> atau <strong>Spasi</strong> untuk navigasi 3D. Tekan <strong>Esc</strong> untuk kembali ke peta ini.</span>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 2: LATAR BELAKANG & MASALAH ==================== -->
+      <section id="masalah" class="croot-node slide split" data-croot-step="2" data-croot-x="-1600" data-croot-y="-800" data-croot-z="400" data-croot-ry="25">
+        <div class="slide-content">
+          <span class="step-num">01 / Masalah</span>
+          <h2>Kelemahan Agen Coding Berbasis Runtime Tradisional</h2>
+          <p>Kakas seperti Claude Code dan Codex membuktikan nilai tinggi AI di CLI, namun mayoritas dibangun dengan Node.js atau Python:</p>
+          <ul class="feature-list">
+            <li><strong>RAM Boros:</strong> Menyerap 150–300 MB RAM hanya untuk status siaga (idle).</li>
+            <li><strong>Waktu Startup Lambat:</strong> Jeda 300–600 milidetik saat inisialisasi modul runtime V8/Python.</li>
+            <li><strong>Distribusi Rapuh:</strong> Ketergantungan pada <code>npm</code>, <code>pip</code>, atau bundel raksasa (> 80 MB).</li>
+            <li><strong>Terkunci Satu Model:</strong> Sebagian besar agen mengunci pengguna ke satu penyedia API tertentu.</li>
+          </ul>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-card danger">
+            <h4>Beban Runtime Standar</h4>
+            <div class="bar-meter">
+              <span>Node.js / Python Agent</span>
+              <div class="bar-fill full">180 MB RAM</div>
+            </div>
+            <div class="bar-meter">
+              <span>CRootAgent (Rust)</span>
+              <div class="bar-fill slim">10.2 MB</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 3: PROFIL CAPSTONE PROYEK 2 ==================== -->
+      <section id="profil" class="croot-node slide split" data-croot-step="3" data-croot-x="-1600" data-croot-y="800" data-croot-z="400" data-croot-ry="20">
+        <div class="slide-content">
+          <span class="step-num">02 / Kompetensi Capstone</span>
+          <h2>Pembuktian Profil: Software Engineer</h2>
+          <p>Sesuai kurikulum proyek vokasi bertahap di <code>ll.my.id/instruction</code>:</p>
+          <div class="timeline-step">
+            <span class="badge-done">Proyek 1</span>
+            <p><strong>Debugger:</strong> Menyelesaikan bug nyata, SCM Git, workflow dasar.</p>
+          </div>
+          <div class="timeline-step active">
+            <span class="badge-target">Proyek 2 (CRootAgent)</span>
+            <p><strong>Software Engineer:</strong> Membangun fitur lengkap end-to-end, test suite unit/integrasi ditulis sendiri, pipeline CI otomatis.</p>
+          </div>
+          <div class="timeline-step">
+            <span class="badge-future">Proyek 3</span>
+            <p><strong>Software Architect:</strong> Arsitektur sistem multi-layanan, integrasi M2M API, dan kepemimpinan tim.</p>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-card highlight">
+            <h4>Bukti Nyata Software Engineer</h4>
+            <ul class="checklist">
+              <li>✔ Fitur end-to-end: CLI REPL, Multi-API, Tool Engine</li>
+              <li>✔ 10 kasus uji otomatis (100% Lolos)</li>
+              <li>✔ Pipeline CI/CD GitHub Actions multi-OS</li>
+              <li>✔ Biner mandiri terdistribusi resmi</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 4: ARSITEKTUR SISTEM RUST ==================== -->
+      <section id="arsitektur" class="croot-node slide" data-croot-step="4" data-croot-x="0" data-croot-y="-1200" data-croot-z="600" data-croot-rx="20">
+        <div class="slide-content text-center">
+          <span class="step-num">03 / Arsitektur</span>
+          <h2>Arsitektur Modular CRootAgent Berbasis Rust</h2>
+          <p class="desc-center">Pemisahan tanggung jawab secara ketat menggunakan <em>trait-based polymorphism</em> dan <em>async runtime</em> Tokio.</p>
+          
+          <div class="arch-flow">
+            <div class="arch-box">
+              <span class="box-tag">CLI Dispatcher</span>
+              <h4>clap 4.5</h4>
+              <p>Argumen & REPL Prompt</p>
+            </div>
+            <span class="arch-arrow">&rarr;</span>
+            <div class="arch-box">
+              <span class="box-tag">Core Engine</span>
+              <h4>ReAct Agent Loop</h4>
+              <p>Reason $\leftrightarrow$ Act $\leftrightarrow$ Observe</p>
+            </div>
+            <span class="arch-arrow">&rarr;</span>
+            <div class="arch-box">
+              <span class="box-tag">Safety Gate</span>
+              <h4>HITL Safety</h4>
+              <p>Konfirmasi [y/N] Tindakan</p>
+            </div>
+            <span class="arch-arrow">&rarr;</span>
+            <div class="arch-box">
+              <span class="box-tag">Execution</span>
+              <h4>Tool Registry</h4>
+              <p>Read, Write, Edit, Shell</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 5: MULTI-API SESSION ==================== -->
+      <section id="multiprovider" class="croot-node slide split" data-croot-step="5" data-croot-x="1600" data-croot-y="-800" data-croot-z="400" data-croot-ry="-25">
+        <div class="slide-content">
+          <span class="step-num">04 / Multi-API</span>
+          <h2>Multi-API Session & Alih Model Dinamis</h2>
+          <p>Mendukung fleksibilitas pengembang untuk beralih penyedia di tengah percakapan tanpa kehilangan riwayat obrolan:</p>
+          <div class="provider-badges">
+            <span class="p-badge gemini">Google Gemini 1.5 Pro</span>
+            <span class="p-badge claude">Anthropic Claude 3.5 Sonnet</span>
+            <span class="p-badge groq">Groq Llama 3.3 70B</span>
+            <span class="p-badge openai">OpenAI GPT-4o</span>
+            <span class="p-badge ollama">Ollama (Offline Lokal)</span>
+          </div>
+          <p class="mt-2">Riwayat sesi tersimpan dalam format JSON terstruktur di <code>~/.config/crootagent/sessions/</code> dan dapat diekspor langsung ke format Markdown dengan perintah <code>/export</code>.</p>
+        </div>
+        <div class="slide-visual">
+          <div class="terminal-mockup">
+            <div class="term-bar"><span class="t-title">Sesi Interaktif REPL</span></div>
+            <div class="term-content">
+              <p><span class="prompt">crootagent&gt;</span> Analisis arsitektur sistem ini</p>
+              <p class="agent-msg"><span class="badge-gemini">[gemini-1.5-pro]</span> Sistem Anda memiliki 6 modul...</p>
+              <p><span class="prompt">crootagent&gt;</span> /provider groq</p>
+              <p class="sys-msg">✔ Provider dialihkan ke: groq (llama-3.3-70b)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 6: TOOL SUITE & HITL SAFETY ==================== -->
+      <section id="tools" class="croot-node slide split" data-croot-step="6" data-croot-x="1600" data-croot-y="800" data-croot-z="400" data-croot-ry="-20">
+        <div class="slide-content">
+          <span class="step-num">05 / Keamanan & Perkakas</span>
+          <h2>Developer Tool Suite & Human-in-the-Loop Safety</h2>
+          <p>Agen hanya mengusulkan tindakan, manusia memegang kendali eksekusi:</p>
+          <ul class="tools-list">
+            <li><code>read_file</code>: Membaca berkas dengan nomor baris & batasan rentang baris.</li>
+            <li><code>write_file</code>: Membuat berkas baru atau menimpa secara aman (destruktif).</li>
+            <li><code>edit_file</code>: Penggantian teks bedah secara presisi (destruktif).</li>
+            <li><code>run_command</code>: Eksekusi terminal lokal dengan timeout protektif (destruktif).</li>
+            <li><code>list_dir</code>: Penelusuran struktur hierarki direktori proyek.</li>
+          </ul>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-card alert">
+            <h4>Dialog Interaktif HITL</h4>
+            <pre><code>🔧 Memanggil: run_command
+   Argumen: {"command":"cargo test"}
+⚠️  [HITL Safety] Izinkan eksekusi
+   perkakas 'run_command'? [y/N]: y
+✔ Eksekusi diizinkan oleh pengguna</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 7: HASIL PENGUJIAN & BENCHMARK ==================== -->
+      <section id="benchmark" class="croot-node slide" data-croot-step="7" data-croot-x="0" data-croot-y="1200" data-croot-z="600" data-croot-rx="-20">
+        <div class="slide-content text-center">
+          <span class="step-num">06 / Tolok Ukur Empiris</span>
+          <h2>Hasil Pengujian & Tolok Ukur Kinerja Nyata</h2>
+          <p class="desc-center">Pengujian 10 kasus uji otomatis dan komparasi empiris penggunaan sumber daya perangkat keras.</p>
+
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <span class="metric-val">10 / 10</span>
+              <span class="metric-label">Kasus Uji Lolos (100%)</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val text-success">10.2 MB</span>
+              <span class="metric-label">Konsumsi RAM Idle (93.8% Lebih Hemat)</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val text-cyan">18 ms</span>
+              <span class="metric-label">Waktu Startup (18.8x Lebih Kilat)</span>
+            </div>
+            <div class="metric-card">
+              <span class="metric-val text-rust">6.2 MB</span>
+              <span class="metric-label">Ukuran Binary Rilis Standalone</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 8: CI/CD & LANDING PAGE CROOTJS ==================== -->
+      <section id="cicd" class="croot-node slide split" data-croot-step="8" data-croot-x="2800" data-croot-y="0" data-croot-z="800" data-croot-ry="-30">
+        <div class="slide-content">
+          <span class="step-num">07 / Distribusi & Ekosistem</span>
+          <h2>Distribusi Biner Multi-OS & Landing Page CrootJS</h2>
+          <p>Otomatisasi pengiriman perangkat lunak modern tanpa intervensi manual:</p>
+          <ul class="feature-list">
+            <li><strong>GitHub Actions Matrix:</strong> Mengompilasi 4 target biner: Linux x86_64, macOS Apple Silicon (arm64), macOS Intel, dan Windows x86_64.</li>
+            <li><strong>Auto-Tagging & Releases:</strong> Membuat rilis otomatis dan menyertakan checksum SHA256.</li>
+            <li><strong>Landing Page CrootJS:</strong> Mengakses API GitHub Releases secara dinamis untuk mendeteksi OS pengunjung dan menyajikan tombol unduh 1-klik.</li>
+            <li><strong>Instalasi 1-Baris:</strong> Skrip <code>install.sh</code> dan <code>install.ps1</code> siap pakai.</li>
+          </ul>
+        </div>
+        <div class="slide-visual">
+          <div class="visual-card">
+            <h4>Portal Web CrootJS</h4>
+            <p><code>https://crootagent.github.io</code></p>
+            <div class="os-badges-preview">
+              <span>🐧 Linux</span>
+              <span>🍎 macOS (M1/M2/M3)</span>
+              <span>🪟 Windows</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== NODE 9: KESIMPULAN ==================== -->
+      <section id="kesimpulan" class="croot-node slide cover" data-croot-step="9" data-croot-x="0" data-croot-y="0" data-croot-z="1000">
+        <span class="step-num">08 / Kesimpulan</span>
+        <h2 class="main-title">CRootAgent: Standar Baru Asisten CLI Ultra-Ringan</h2>
+        <p class="subtitle">Membuktikan bahwa agen kecerdasan buatan dapat dibangun dengan cepat, aman, dan sangat hemat sumber daya menggunakan Rust.</p>
+        
+        <div class="summary-points">
+          <div class="point-box">
+            <h4>Efisiensi Maksimal</h4>
+            <p>RAM hanya 10 MB dan biner mandiri 6 MB tanpa ketergantungan runtime.</p>
+          </div>
+          <div class="point-box">
+            <h4>Kebebasan Model</h4>
+            <p>Dukungan multi-API session terpadu (Gemini, Claude, OpenAI, Groq, Ollama).</p>
+          </div>
+          <div class="point-box">
+            <h4>Keamanan Terjamin</h4>
+            <p>Mekanisme Human-in-the-Loop melindungi integritas berkas proyek.</p>
+          </div>
+        </div>
+
+        <div class="deck-footer-info">
+          <p>Terima kasih! Repositori: <strong>https://github.com/CRootAgent/crootagent</strong></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Heads-Up Display (HUD) Controls -->
+  <aside class="croot-hud" aria-label="Kontrol Presentasi">
+    <button id="hud-prev" class="hud-btn" title="Slide Sebelumnya (&larr;)">&#9664;</button>
+    <button id="hud-overview" class="hud-btn" title="Peta Konsep (Esc)">&#9783;</button>
+    <button id="hud-next" class="hud-btn" title="Slide Selanjutnya (&rarr;)">&#9654;</button>
+    <span id="hud-counter" class="hud-counter">1 / 9</span>
+  </aside>
+
+  <!-- crootss Engine Module -->
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
